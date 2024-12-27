@@ -28,13 +28,7 @@ jobs:
           pip install pytest pytest-cov
 
       - name: Run tests
-        run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            $env:PYTHONPATH="$env:PYTHONPATH;." 
-          else
-            PYTHONPATH=$PYTHONPATH:. 
-          fi
-          pytest --cov=.
+        run: PYTHONPATH=$PYTHONPATH:${. pytest --cov=}.
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
