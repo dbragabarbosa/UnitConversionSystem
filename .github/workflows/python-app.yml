@@ -30,7 +30,7 @@ jobs:
       - name: Run tests on Windows
         if: runner.os == 'Windows'
         run: |
-          set PYTHONPATH=%PYTHONPATH%;.
+          $env:PYTHONPATH="$env:PYTHONPATH;."
           pytest --cov=.
     
       - name: Run tests on Linux/macOS
