@@ -2,7 +2,7 @@ import converter
 
 # Testes para comprimento
 def test_metros_para_quilometros():
-    assert converter.converter.metros_para_quilometros(1000) == 1
+    assert converter.metros_para_quilometros(1000) == 1
 
 def test_quilometros_para_milhas():
     assert converter.quilometros_para_milhas(1) == 0.621371
@@ -24,7 +24,7 @@ def test_oncas_para_gramas():
     assert round(converter.oncas_para_gramas(1), 4) == 28.3495
 
 def test_libras_para_quilogramas():
-    assert converter.round(converter.libras_para_quilogramas(1), 6) == 0.453592
+    assert round(converter.libras_para_quilogramas(1), 6) == 0.453592
 
 # Testes para temperatura
 def test_celsius_para_fahrenheit():
