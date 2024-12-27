@@ -5,6 +5,11 @@ from converter import (
     gramas_para_libras,
     celsius_para_fahrenheit,
     fahrenheit_para_kelvin,
+    kelvin_para_fahrenheit,
+    jardas_para_metros,
+    milhas_para_metros,
+    oncas_para_gramas,
+    libras_para_quilogramas
 )
 
 # Testes para comprimento
