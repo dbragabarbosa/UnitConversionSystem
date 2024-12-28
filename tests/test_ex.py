@@ -1,7 +1,7 @@
-# test_dummy.py
-from main import somar
-from main import subtrair
-from main import multiplicar
+# test_ex.py
+from ex import somar
+from ex import subtrair
+from ex import multiplicar
 
 def test_somar():
     assert somar(2, 3) == 5
