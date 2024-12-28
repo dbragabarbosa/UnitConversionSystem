@@ -82,12 +82,31 @@ class TestMain(unittest.TestCase):
         main.main()
         mock_print.assert_any_call("10000 m² = 1.00 hectares")
 
-    @patch("main.dist.milhas_para_metros", return_value=3218.68)
-    @patch("main.dist.metros_para_quilometros", return_value=3.22)
+    @patch("main.input", side_effect=["1", "1", "5000", "0", "2", "2", "22", "0", "0"])
+    @patch("main.dist.metros_para_quilometros", return_value=5.0)
+    @patch("main.weight.libras_para_quilogramas", return_value=9.98)
     @patch("main.print")
-    def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_milhas_para_metros, mock_metros_para_quilometros, mock_input):
+    def test_fluxo_integrado(self, mock_print, mock_weight, mock_distance, mock_input):
+        """
+        Teste de integração para verificar o fluxo completo do sistema.
+        Este teste cobre as conversões de distância e peso em uma interação contínua.
+        """
         main.main()
-        mock_print.assert_any_call("2 milhas = 3.22 quilômetros")
+        
+        # Verifica se os menus principais e secundários foram exibidos
+        mock_print.assert_any_call("=== Sistema de Conversão de Unidades ===")
+        mock_print.assert_any_call("1. Conversão de Distância")
+        mock_print.assert_any_call("2. Conversão de Peso")
+        
+        # Verifica a saída da conversão de distância
+        mock_print.assert_any_call("5000 metros = 5.0 quilômetros")
+        
+        # Verifica a saída da conversão de peso
+        mock_print.assert_any_call("22 libras = 9.98 quilogramas")
+        
+        # Verifica a mensagem de encerramento
+        mock_print.assert_any_call("Encerrando o sistema. Até mais!")
+
 
 if __name__ == "__main__":
     unittest.main()
