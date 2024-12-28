@@ -1,6 +1,5 @@
 import converter_weight as converter
 
-# Testes para peso
 def test_quilogramas_para_gramas():
     assert converter.quilogramas_para_gramas(1) == 1000
 

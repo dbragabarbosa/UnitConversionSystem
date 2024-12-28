@@ -1,4 +1,3 @@
-# Funções de conversão para temperatura
 def celsius_para_fahrenheit(celsius):
     result = (celsius * 9/5) + 32
     return result

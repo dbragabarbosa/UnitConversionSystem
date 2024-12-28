@@ -1,4 +1,3 @@
-# Funções de conversão para peso
 def quilogramas_para_gramas(quilogramas):
     result = quilogramas * 1000
     return result

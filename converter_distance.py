@@ -1,4 +1,3 @@
-# Funções de conversão para comprimento
 def metros_para_quilometros(metros):
     result = metros / 1000
     return result

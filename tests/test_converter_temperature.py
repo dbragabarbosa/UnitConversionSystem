@@ -1,6 +1,5 @@
 import converter_temperature as converter
 
-# Testes para temperatura
 def test_celsius_para_fahrenheit():
     assert converter.celsius_para_fahrenheit(0) == 32
 

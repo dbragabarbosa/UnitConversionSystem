@@ -1,6 +1,5 @@
 import converter_distance as converter
 
-# Testes para comprimento
 def test_metros_para_quilometros():
     assert converter.metros_para_quilometros(1000) == 1
 
