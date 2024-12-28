@@ -29,3 +29,8 @@ def metros_para_polegadas(metros):
 def polegadas_para_metros(polegadas):
     result = polegadas / 39.3701
     return result
+
+def milhas_para_quilometros(milhas):
+    metros = milhas_para_metros(milhas)
+    quilometros = metros_para_quilometros(metros)
+    return quilometros
