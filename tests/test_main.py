@@ -3,6 +3,22 @@ from unittest.mock import patch
 import main
 
 class TestMain(unittest.TestCase):
+
+    def test_mostrar_menu(self):
+        with patch('builtins.print') as mock_print:
+            main.mostrar_menu()
+            mock_print.assert_any_call("=== Sistema de Conversão de Unidades ===")
+
+    def test_obter_escolha(self):
+        with patch('builtins.input', return_value='2'):
+            escolha = main.obter_escolha(2)
+            self.assertEqual(escolha, 2)
+
+    def test_entrada_valor(self):
+        with patch('builtins.input', return_value='15.5'):
+            valor = main.entrada_valor("Digite um valor:")
+            self.assertEqual(valor, 15.5)
+
     @patch("main.input", side_effect=["1", "1", "1000", "0"])
     @patch("main.dist.metros_para_quilometros", return_value=1.0)
     @patch("main.print")
@@ -66,12 +82,13 @@ class TestMain(unittest.TestCase):
         main.main()
         mock_print.assert_any_call("10000 m² = 1.00 hectares")
 
-    # @patch("main.input", side_effect=["1", "3", "2", "0", "0"])
-    # @patch("main.dist.milhas_para_quilometros", return_value=3.2)
-    # @patch("main.print")
-    # def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_converter, mock_input):
-    #     main.main()
-    #     mock_print.assert_any_call("2 milhas = 3.2 quilômetros")
+    @patch("main.input", side_effect=["1", "3", "2", "0", "0"])
+    @patch("main.dist.milhas_para_metros", return_value=3218.68)
+    @patch("main.dist.metros_para_quilometros", return_value=3.21868)
+    @patch("main.print")
+    def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_milhas_para_metros, mock_metros_para_quilometros, mock_input):
+        main.main()
+        mock_print.assert_any_call("2 milhas = 3.22 quilômetros")
 
 if __name__ == "__main__":
     unittest.main()
