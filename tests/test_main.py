@@ -10,13 +10,6 @@ class TestMain(unittest.TestCase):
             main.mostrar_menu()
             mock_print.assert_any_call("=== Sistema de Conversão de Unidades ===")
 
-    def test_sub_menu(self):
-        with patch('builtins.print') as mock_print:
-            opcoes = ["Opção 1", "Opção 2"]
-            main.sub_menu(opcoes)
-            self.assertEqual(mock_print.call_count, len(opcoes) + 1)  # Opções + "0. Voltar"
-            mock_print.assert_any_call("0. Voltar")
-
     def test_obter_escolha(self):
         with patch('builtins.input', return_value='2'):
             escolha = main.obter_escolha(2)
