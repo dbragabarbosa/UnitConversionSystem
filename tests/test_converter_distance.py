@@ -12,3 +12,15 @@ def test_jardas_para_metros():
 
 def test_milhas_para_metros():
     assert converter.milhas_para_metros(1) == 1609.34
+
+def test_polegadas_para_centimetros():
+    assert converter.polegadas_para_centimetros(1) == 2.54
+
+def test_centimetros_para_polegadas():
+    assert converter.centimetros_para_polegadas(2.54) == 1
+
+def test_metros_para_polegadas():
+    assert converter.metros_para_polegadas(1) == 39.3701
+
+def test_polegadas_para_metros():
+    assert converter.polegadas_para_metros(39.3701) == 1
