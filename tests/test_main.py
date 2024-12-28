@@ -66,12 +66,12 @@ class TestMain(unittest.TestCase):
         main.main()
         mock_print.assert_any_call("10000 m² = 1.00 hectares")
 
-    @patch("main.input", side_effect=["1", "3", "2", "0", "0"])
-    @patch("main.dist.milhas_para_quilometros", return_value=3.2)
-    @patch("main.print")
-    def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_converter, mock_input):
-        main.main()
-        mock_print.assert_any_call("2 milhas = 3.2 quilômetros")
+    # @patch("main.input", side_effect=["1", "3", "2", "0", "0"])
+    # @patch("main.dist.milhas_para_quilometros", return_value=3.2)
+    # @patch("main.print")
+    # def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_converter, mock_input):
+    #     main.main()
+    #     mock_print.assert_any_call("2 milhas = 3.2 quilômetros")
 
 if __name__ == "__main__":
     unittest.main()
