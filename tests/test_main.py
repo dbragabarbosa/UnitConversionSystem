@@ -82,9 +82,8 @@ class TestMain(unittest.TestCase):
         main.main()
         mock_print.assert_any_call("10000 m² = 1.00 hectares")
 
-    @patch("main.input", side_effect=["1", "3", "2", "0", "0"])
     @patch("main.dist.milhas_para_metros", return_value=3218.68)
-    @patch("main.dist.metros_para_quilometros", return_value=3.21868)
+    @patch("main.dist.metros_para_quilometros", return_value=3.22)
     @patch("main.print")
     def test_sistema_conversao_distancia_milhas_para_quilometros(self, mock_print, mock_milhas_para_metros, mock_metros_para_quilometros, mock_input):
         main.main()
