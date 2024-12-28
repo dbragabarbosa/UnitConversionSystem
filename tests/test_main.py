@@ -87,26 +87,12 @@ class TestMain(unittest.TestCase):
     @patch("main.weight.libras_para_quilogramas", return_value=9.98)
     @patch("main.print")
     def test_fluxo_integrado(self, mock_print, mock_weight, mock_distance, mock_input):
-        """
-        Teste de integração para verificar o fluxo completo do sistema.
-        Este teste cobre as conversões de distância e peso em uma interação contínua.
-        """
         main.main()
-        
-        # Verifica se os menus principais e secundários foram exibidos
         mock_print.assert_any_call("=== Sistema de Conversão de Unidades ===")
         mock_print.assert_any_call("1. Conversão de Distância")
         mock_print.assert_any_call("2. Conversão de Peso")
-        
-        # Verifica a saída da conversão de distância
         mock_print.assert_any_call("5000 metros = 5.0 quilômetros")
-        
-        # Verifica a saída da conversão de peso
-        # mock_print.assert_any_call("22 libras = 9.98 quilogramas")
-        
-        # Verifica a mensagem de encerramento
         mock_print.assert_any_call("Encerrando o sistema. Até mais!")
-
 
 if __name__ == "__main__":
     unittest.main()
