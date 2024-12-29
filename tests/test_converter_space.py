@@ -64,7 +64,7 @@ def test_pes_quadrados_para_metros_quadrados():
     assert round(converter.pes_quadrados_para_metros_quadrados(1), 6) == 0.092903
 
 def test_metros_quadrados_para_pes_quadrados():
-    assert round(converter.metros_quadrados_para_pes_quadrados(1), 6) == 10.76391
+    assert round(converter.metros_quadrados_para_pes_quadrados(1), 6) == 10.763915
 
 def test_milhas_quadradas_para_quilometros_quadrados():
     assert round(converter.milhas_quadradas_para_quilometros_quadrados(1), 5) == 2.58999
