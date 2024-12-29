@@ -59,3 +59,33 @@ def test_metros_quadrados_para_jardas_quadradas():
 
 def test_jardas_quadradas_para_metros_quadrados():
     assert round(converter.jardas_quadradas_para_metros_quadrados(1.195990), 6) == 1
+
+def test_pes_quadrados_para_metros_quadrados():
+    assert round(converter.pes_quadrados_para_metros_quadrados(1), 6) == 0.092903
+
+def test_metros_quadrados_para_pes_quadrados():
+    assert round(converter.metros_quadrados_para_pes_quadrados(1), 6) == 10.76391
+
+def test_milhas_quadradas_para_quilometros_quadrados():
+    assert round(converter.milhas_quadradas_para_quilometros_quadrados(1), 5) == 2.58999
+
+def test_quilometros_quadrados_para_milhas_quadradas():
+    assert round(converter.quilometros_quadrados_para_milhas_quadradas(1), 6) == 0.386102
+
+def test_polegadas_quadradas_para_centimetros_quadrados():
+    assert round(converter.polegadas_quadradas_para_centimetros_quadrados(1), 4) == 6.4516
+
+def test_centimetros_quadrados_para_polegadas_quadradas():
+    assert round(converter.centimetros_quadrados_para_polegadas_quadradas(6.4516), 6) == 1
+
+def test_metros_quadrados_para_milimetros_quadrados():
+    assert converter.metros_quadrados_para_milimetros_quadrados(1) == 1_000_000
+
+def test_milimetros_quadrados_para_metros_quadrados():
+    assert converter.milimetros_quadrados_para_metros_quadrados(1_000_000) == 1
+
+def test_metros_quadrados_para_centimetros_quadrados():
+    assert converter.metros_quadrados_para_centimetros_quadrados(1) == 10_000
+
+def test_centimetros_quadrados_para_metros_quadrados():
+    assert converter.centimetros_quadrados_para_metros_quadrados(10_000) == 1
