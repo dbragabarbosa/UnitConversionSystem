@@ -4,8 +4,10 @@ import converter_temperature as temp
 import converter_time as time
 import converter_volume as volume
 import converter_space as space
+import converter_velocity as velocity
 
 def mostrar_menu():
+    print()
     print("=== Sistema de Conversão de Unidades ===")
     print("1. Conversão de Distância")
     print("2. Conversão de Peso")
@@ -13,6 +15,7 @@ def mostrar_menu():
     print("4. Conversão de Tempo")
     print("5. Conversão de Volume")
     print("6. Conversão de Espaço")
+    print("7. Conversão de Velocidade")
     print("0. Sair")
     print()
 
@@ -119,10 +122,37 @@ def conversao_espaco():
     elif escolha == 2:
         print(f"{int(valor)} hectares = {space.hectares_para_metros_quadrados(valor):.0f} m²")
 
+def conversao_velocidade():
+    opcoes = [
+        "Metros por segundo para Quilômetros por hora",
+        "Quilômetros por hora para Metros por segundo",
+        "Metros por segundo para Milhas por hora",
+        "Milhas por hora para Metros por segundo",
+        "Quilômetros por hora para Milhas por hora",
+        "Milhas por hora para Quilômetros por hora"
+    ]
+    sub_menu(opcoes)
+    escolha = obter_escolha(len(opcoes))
+    if escolha == 0:
+        return
+    valor = entrada_valor("Insira o valor para conversão: ")
+    if escolha == 1:
+        print(f"{valor} m/s = {velocity.mps_para_kmh(valor):.6f} km/h")
+    elif escolha == 2:
+        print(f"{valor} km/h = {velocity.kmh_para_mps(valor):.6f} m/s")
+    elif escolha == 3:
+        print(f"{valor} m/s = {velocity.mps_para_mph(valor):.6f} mph")
+    elif escolha == 4:
+        print(f"{valor} mph = {velocity.mph_para_mps(valor):.6f} m/s")
+    elif escolha == 5:
+        print(f"{valor} km/h = {velocity.kmh_para_mph(valor):.6f} mph")
+    elif escolha == 6:
+        print(f"{valor} mph = {velocity.mph_para_kmh(valor):.6f} km/h")
+
 def main():
     while True:
         mostrar_menu()
-        escolha = obter_escolha(6)
+        escolha = obter_escolha(7)
         if escolha == 0:
             print("Encerrando o sistema. Até mais!")
             break
@@ -138,6 +168,8 @@ def main():
             conversao_volume()
         elif escolha == 6:
             conversao_espaco()
+        elif escolha == 7:
+            conversao_velocidade()
 
 if __name__ == "__main__":
     main()
